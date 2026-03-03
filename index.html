@@ -1269,21 +1269,20 @@
             dateInput.max = '2026-03-31';
             dateInput.value = '2026-03-14';
 
-            // Check if user has already spun
-            if (localStorage.getItem('lexusSpinCompleted')) {
-                // Hide signup, show a "you already claimed" screen
-                document.getElementById('signupSection').style.display = 'none';
-                document.getElementById('wheelSection').classList.add('active');
-                document.querySelector('.wheel-wrapper').style.display = 'none';
-                document.getElementById('spinBtn').style.display = 'none';
-                document.querySelector('.wheel-section h2').textContent = 'Prize Already Claimed';
-                document.getElementById('playerGreeting').innerHTML = 'You\'ve already used your spin for this promotion.<br><span style="color:#c9a84c;font-size:13px;margin-top:8px;display:inline-block;">Check your email for event confirmation details.</span>';
-            }
+            // Spin lock disabled for testing
+            // if (localStorage.getItem('lexusSpinCompleted')) {
+            //     document.getElementById('signupSection').style.display = 'none';
+            //     document.getElementById('wheelSection').classList.add('active');
+            //     document.querySelector('.wheel-wrapper').style.display = 'none';
+            //     document.getElementById('spinBtn').style.display = 'none';
+            //     document.querySelector('.wheel-section h2').textContent = 'Prize Already Claimed';
+            //     document.getElementById('playerGreeting').innerHTML = 'You\'ve already used your spin for this promotion.<br><span style="color:#c9a84c;font-size:13px;margin-top:8px;display:inline-block;">Check your email for event confirmation details.</span>';
+            // }
         });
 
-        // Mark spin as used after claiming
+        // Mark spin as used after claiming (disabled for testing)
         function markSpinUsed() {
-            localStorage.setItem('lexusSpinCompleted', 'true');
+            // localStorage.setItem('lexusSpinCompleted', 'true');
         }
     </script>
 
