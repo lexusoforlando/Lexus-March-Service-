@@ -1257,8 +1257,27 @@
             animateConfetti();
         }
 
+        // ========== PROMO TOGGLE ==========
+        // Set to true to show "Promotion Has Ended" page
+        // Set to false to show the full landing page (for showing family, etc.)
+        const PROMO_EXPIRED = true;
+        // ===================================
+
         // Set min date for service date picker
         document.addEventListener('DOMContentLoaded', () => {
+            if (PROMO_EXPIRED) {
+                document.querySelector('.hero').style.display = 'none';
+                document.querySelector('.sponsor-bar').style.display = 'none';
+                document.querySelector('.main-container').style.display = 'none';
+                document.querySelector('.footer').style.display = 'none';
+
+                const expired = document.createElement('div');
+                expired.style.cssText = 'min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;text-align:center;';
+                expired.innerHTML = '<h1 style="font-family:Playfair Display,serif;font-size:32px;background:linear-gradient(135deg,#e0c878,#c9a84c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:15px;">This Link Has Expired</h1><p style="color:#999;font-size:15px;max-width:400px;line-height:1.7;font-weight:300;">This promotional link is no longer active. If you believe this is an error, please contact our service team at (407) 678-5100.</p><a href="https://lexusoforlando.com/" target="_blank" style="margin-top:25px;color:#c9a84c;text-decoration:none;font-size:14px;">Visit Lexus of Orlando &rarr;</a>';
+                document.querySelector('.header').after(expired);
+                return;
+            }
+
             const dateInput = document.getElementById('serviceDate');
             dateInput.min = '2026-03-01';
             dateInput.max = '2026-03-31';
